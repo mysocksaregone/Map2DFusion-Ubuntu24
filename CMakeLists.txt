@@ -151,3 +151,9 @@ message(STATUS "CMAKE_CXX_FLAGS: ${CMAKE_CXX_FLAGS}")
 message(STATUS "CMAKE_C_FLAGS  : ${CMAKE_C_FLAGS}")
 
 
+
+# Ubuntu 24.04 + OpenCV 4 + GCC 13 compatibility overrides
+set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0 -fno-unreachable-traps -fPIC")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -O0 -fno-unreachable-traps -fPIC")
+list(REMOVE_ITEM OPENCV_LIBRARIES opencv_highgui opencv_cvv opencv_viz)
